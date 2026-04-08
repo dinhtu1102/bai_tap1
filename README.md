@@ -38,21 +38,42 @@
 * cài đặt namepace thành công
 
 <img width="1639" height="778" alt="image" src="https://github.com/user-attachments/assets/c704b836-d91b-4a48-aece-b8bb7ccd272e" />
+
 # B. Cài đặt Ubuntu + Docker
 
 Cài đặt hệ điều hành Ubuntu 24.04.4 LTS
-* cài đặt ubuntu 
+
+* cài đặt ubuntu
+
 <img width="1859" height="885" alt="Screenshot 2026-04-08 214355" src="https://github.com/user-attachments/assets/5990a8d4-8847-4b8c-a353-bb411933c5c1" />
+
+* cài đặt ubuntu trên hyper-V
+
+<img width="1187" height="679" alt="image" src="https://github.com/user-attachments/assets/529fbe6f-16a8-43b7-8e53-7023d1c59f85" />
+
+* giao diên maysb ảo
+
+<img width="1304" height="993" alt="image" src="https://github.com/user-attachments/assets/0b2a7870-ab86-41a9-b7ca-b773227dc60b" />
+
+<img width="1337" height="1001" alt="image" src="https://github.com/user-attachments/assets/b0b527ae-7578-4672-b6ca-09c7a463914d" />
+
+<img width="1306" height="952" alt="image" src="https://github.com/user-attachments/assets/18a9e28f-48b3-46c9-acce-9df492a90663" />
+
+<img width="1315" height="990" alt="image" src="https://github.com/user-attachments/assets/00e940ec-90c8-4027-adda-d6bf8c63bbf4" />
 
 
 * cài đặt docker
 
 <img width="1377" height="763" alt="image" src="https://github.com/user-attachments/assets/5a90384c-a3ef-479f-9ee8-3f181fb1b741" />
 
+* kết lối thành công
+
+<img width="1292" height="966" alt="image" src="https://github.com/user-attachments/assets/a7dc98dc-5434-488d-b29e-ef09260020e3" />
 
 Sử dụng một trong các công cụ để giả lập: HyperV (có sẵn của windows), VirutualBox (Miễn phí), VM_Ware (bản quyền)
 
 Download file iso để cài đặt.
+
 Cấu hình mạng trong Ubuntu (và công cụ giả lập) để cho phép truy cập SSH vào Ubuntu từ cmd của windows
 
 Ví dụ:
