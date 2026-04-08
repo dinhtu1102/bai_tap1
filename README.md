@@ -29,7 +29,7 @@ A. Đăng ký tên miền xịn cho cá nhân:
 
 <img width="1859" height="914" alt="image" src="https://github.com/user-attachments/assets/ee30fa24-dce1-4d93-9468-927e2bfb78d0" />
 
-đặt tên domin
+* đặt tên domin
 
 <img width="1865" height="882" alt="image" src="https://github.com/user-attachments/assets/be229604-a027-4c6c-ba11-4aba08a7cdeb" />
 
@@ -39,5 +39,11 @@ A. Đăng ký tên miền xịn cho cá nhân:
 
 <img width="1639" height="778" alt="image" src="https://github.com/user-attachments/assets/c704b836-d91b-4a48-aece-b8bb7ccd272e" />
 
-
 4 Nhập 2 dòng namespace của cloudflare vào trong trang quản lý DNS record của tên miền đăng ký (vd trên mắt bão)
+
+<img width="1639" height="778" alt="image" src="https://github.com/user-attachments/assets/c704b836-d91b-4a48-aece-b8bb7ccd272e" />
+
+* cài đặt namepace thành công
+
+<img width="1842" height="863" alt="image" src="https://github.com/user-attachments/assets/8da41247-bd3e-4398-9eea-12e3d1b45c1a" />
+
