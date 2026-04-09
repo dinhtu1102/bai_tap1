@@ -61,11 +61,6 @@ Cài đặt hệ điều hành Ubuntu 24.04.4 LTS
 
 <img width="1315" height="990" alt="image" src="https://github.com/user-attachments/assets/00e940ec-90c8-4027-adda-d6bf8c63bbf4" />
 
-
-* cài đặt docker
-
-<img width="1377" height="763" alt="image" src="https://github.com/user-attachments/assets/5a90384c-a3ef-479f-9ee8-3f181fb1b741" />
-
 * kết lối thành công
 
 <img width="1292" height="966" alt="image" src="https://github.com/user-attachments/assets/a7dc98dc-5434-488d-b29e-ef09260020e3" />
@@ -135,7 +130,6 @@ Cấu hình để docker chạy mà không cần tiền tố sudo
 
 Tìm hiểu tập lệnh của docker và docker compose
 
-
 Đảm bảo tường lửa trên Ubuntu đã cho phép các cổng 80, 1880, 9630 (Lệnh: sudo ufw allow ...)
 
 <img width="581" height="220" alt="image" src="https://github.com/user-attachments/assets/03c179c6-2427-4571-9573-0320b743ce40" />
@@ -143,4 +137,133 @@ Tìm hiểu tập lệnh của docker và docker compose
 4 Nhập 2 dòng namespace của cloudflare vào trong trang quản lý DNS record của tên miền đăng ký (vd trên mắt bão)
 
 <img width="1519" height="730" alt="image" src="https://github.com/user-attachments/assets/1690768f-bc11-4001-97f4-afadc9939476" />
+
+# C. Cấu hình docker compose:
+
+1 Tạo thư mục: ~/myapp
+
+ <img width="737" height="420" alt="image" src="https://github.com/user-attachments/assets/25549202-650f-416d-b84a-6bd89ebc6c2b" />
+
+2 Chuyển vào trong thư mục ~/myapp
+
+<img width="413" height="76" alt="image" src="https://github.com/user-attachments/assets/cace6e16-757b-4ed2-b813-91cf0a2adc92" />
+
+3 Tạo thư mục: ./myweb
+
+4 Tạo file ./myweb/index.html (với nội dung là thông tin cá nhân của em)
+
+  nano myweb/index.html
+
+<img width="1099" height="633" alt="image" src="https://github.com/user-attachments/assets/0c74c472-3ec6-40f9-91d2-1459a8e105fc" />
+
+5 Tạo file docker-compose.yml để nó sẽ có các dịch vụ sau:
+
+<img width="1100" height="638" alt="image" src="https://github.com/user-attachments/assets/4ec06d3a-4a43-4f11-bc9f-5d3ba1a1ac0e" />
+
+Khai báo sử dụng nodered/node-red, cổng 1880, dữ liệu nằm tại thư mục ./nodered
+
+Khai báo sử dụng nginx, cổng 80, cấu hình trong file ./nginx/nginx.conf
+
+<img width="1101" height="638" alt="image" src="https://github.com/user-attachments/assets/9e649fa5-5f4f-4a69-ba74-c4ee26a23507" />
+
+Mount thư mục ./myweb thành thư mục /myweb trong nginx
+
+Mount file ./nginx/nginx.conf vào file /etc/nginx/nginx.conf trong nginx
+
+6 Edit file ./nginx/nginx.conf để:
+
+Cấu hình web server cổng 80
+
+<img width="1103" height="630" alt="image" src="https://github.com/user-attachments/assets/3f082457-1320-4943-9ead-a4e7f539db0e" />
+
+server_name là sub-domain (sub-domain tuỳ ý của em)
+
+<img width="1918" height="841" alt="image" src="https://github.com/user-attachments/assets/dfe9d65e-b49f-45eb-ba12-90589c533bbe" />
+
+location / trỏ tới root là thư mục /myweb
+
+<img width="1095" height="704" alt="image" src="https://github.com/user-attachments/assets/f98b1e57-f5e8-43ff-afa3-2c9400a67c02" />
+
+location /api dùng proxy_pass trỏ tới 1 (hoặc nhiều) node http_in của nodered
+
+<img width="1877" height="909" alt="image" src="https://github.com/user-attachments/assets/328528c4-dc39-4e51-8fd3-f3723eef2b0e" />
+
+<img width="1127" height="758" alt="image" src="https://github.com/user-attachments/assets/543647a4-f331-4505-9541-478354874e9d" />
+
+7 Edit file ./nodered/settings.js để nodered bắt buộc đăng nhập
+
+<img width="1097" height="638" alt="image" src="https://github.com/user-attachments/assets/d9f3173a-e17a-4e49-aee8-1f65af91416a" />
+
+Chạy docker-compose lần đầu để Node-RED tự sinh file cấu hình trong thư mục ./nodered, sau đó mới tiến hành sửa settings.js và restart lại container
+
+<img width="1904" height="996" alt="image" src="https://github.com/user-attachments/assets/bbf703ea-ff17-444d-8c83-20331e161699" />
+
+<img width="1910" height="973" alt="image" src="https://github.com/user-attachments/assets/b0e58396-b22f-4a14-81ec-066595f62d38" />
+
+# D. (Bonus - không bắt buộc)
+
+1 tạo thư mục ./myapi
+
+<img width="1051" height="369" alt="image" src="https://github.com/user-attachments/assets/723efade-b829-41a6-a470-4ac1497ca0ab" />
+
+2 tạo file ./myapi/app.py sử dụng Python + Flask để làm gì đó funny
+
+<img width="878" height="102" alt="image" src="https://github.com/user-attachments/assets/c48c9b04-e30a-472e-85ac-ce148dc13b42" />
+
+<img width="1103" height="699" alt="image" src="https://github.com/user-attachments/assets/744f7139-649e-42e4-80a2-1237793e1d89" />
+
+3 tạo file ./myapi/requirements.txt chứa các thư viện mà app.py sử dụng (theo như app.py ví dụ thì requirements.txt chỉ cần có nội dung: flask)
+
+<img width="1061" height="165" alt="image" src="https://github.com/user-attachments/assets/ee88125d-6fe0-458b-b985-8441fffb5f88" />
+
+4 tạo file ./myapi/Dockerfile để khai báo sử dụng Python 3.9 slim
+
+    Sử dụng phiên bản Python nhẹ (alpine) để giảm dung lượng image
+ 
+   FROM python:3.9-slim
+  
+    Thiết lập thư mục làm việc bên trong container
+ 
+   WORKDIR /app
+
+    Sao chép file requirements vào và cài đặt thư viện
+   COPY requirements.txt .
+   RUN pip install --no-cache-dir -r requirements.txt
+
+    Sao chép toàn bộ mã nguồn vào container
+   COPY . .
+
+    Thông báo container sẽ chạy ở cổng 9630
+   EXPOSE 9630
+
+    Lệnh khởi chạy ứng dụng
+   CMD ["python", "app.py"]
+
+<img width="1100" height="692" alt="image" src="https://github.com/user-attachments/assets/555dfff0-98da-4d0e-a5de-92475e0bdf15" />
+ 
+5 Sửa đổi docker-compose để sử dụng myapp (xem phần tham khảo ở dưới)
+
+<img width="1097" height="667" alt="image" src="https://github.com/user-attachments/assets/fa6dc340-ae05-4352-bbf0-594fd85a58c0" />
+
+6 Sửa đổi nginx/nginx.conf để /api trỏ tới service myapp cổng 9630
+
+<img width="1081" height="430" alt="image" src="https://github.com/user-attachments/assets/51788628-863d-436b-bdb2-d8fa6ff4d6aa" />
+
+<img width="1111" height="699" alt="image" src="https://github.com/user-attachments/assets/a2f6be52-77a1-4ed5-a7c1-2ac180833f9e" />
+
+# E. Triển khai (level test) ứng dụng
+
+1 Chuyển vào trong thư mục ~/myapp
+
+2 Gõ lệnh để docker compose chạy: sẽ run tất cả các service khai báo trong file docker-compose.yml
+
+Lợi ích: Chỉ cần docker-compose up -d là toàn bộ hệ thống (Web + Node-RED + Tunnel) tự chạy,
+
+3 Kiểm tra các container đang chạy trong docker, nếu có cái nào bị restart cần tìm lỗi rồi edit lại docker-compose.yml
+
+4 Kiểm tra kiểm thử các service đang chạy độc lập thông qua ip và port của nó: ví dụ mở trình duyệt ip_ubuntu:1880 để check nodered đã chạy chưa
+
+5 Sử dụng nodered: kéo nodered http_in , http_response, function : để tạo api get đơn giản (dùng cho /api proxy_pass của nginx)
+
+6 Sửa file ./myweb/index.html : thêm code html+js để sử dụng được api đã khai báo proxy_pass (thực ra là sử dụng nodered http_in hoặc sử dụng service myapi)
 
