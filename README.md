@@ -4,9 +4,11 @@
 # MSSV: K225480106067
 # bai_tap1
 # A. Đăng ký tên miền xịn cho cá nhân:
+
 1 Đăng ký domain xịn (có thể dùng của mắt bão, tên miền *.id.vn đang miễn phí cho mọi công dân việt nam <= 23 tuổi, *.io.vn : giá 30k vnđ/năm)
+
 * Trang web đang ký tên miền.
-* 
+ 
 <img width="1849" height="984" alt="image" src="https://github.com/user-attachments/assets/92f7ad94-8fa1-4592-8da5-fa671e569241" />
 
 * Tài khoản đã đăng ký thành công.
