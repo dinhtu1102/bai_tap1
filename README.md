@@ -1,4 +1,4 @@
-<img width="1082" height="234" alt="image" src="https://github.com/user-attachments/assets/a4d910bf-d9a5-4874-a72a-cf5cb78acf08" /># Môn: Phát triển ứng dụng với mã nguồn mở-TEE0421
+# Môn: Phát triển ứng dụng với mã nguồn mở-TEE0421
 # Họ tên : Nguyễn Đình Tú
 # Lớp: 58KTPM
 # MSSV: K225480106067
