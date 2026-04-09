@@ -1,4 +1,4 @@
-# Môn: Phát triển ứng dụng với mã nguồn mở-TEE0421
+<img width="1082" height="234" alt="image" src="https://github.com/user-attachments/assets/a4d910bf-d9a5-4874-a72a-cf5cb78acf08" /># Môn: Phát triển ứng dụng với mã nguồn mở-TEE0421
 # Họ tên : Nguyễn Đình Tú
 # Lớp: 58KTPM
 # MSSV: K225480106067
@@ -259,11 +259,34 @@ Chạy docker-compose lần đầu để Node-RED tự sinh file cấu hình tro
 
 Lợi ích: Chỉ cần docker-compose up -d là toàn bộ hệ thống (Web + Node-RED + Tunnel) tự chạy,
 
+<img width="1108" height="842" alt="image" src="https://github.com/user-attachments/assets/51b7d78e-4e15-4124-800a-d322f8e770c4" />
+
 3 Kiểm tra các container đang chạy trong docker, nếu có cái nào bị restart cần tìm lỗi rồi edit lại docker-compose.yml
+
+<img width="1082" height="234" alt="image" src="https://github.com/user-attachments/assets/1fd3b097-3ebd-4187-8b6b-9b273e29daaa" />
 
 4 Kiểm tra kiểm thử các service đang chạy độc lập thông qua ip và port của nó: ví dụ mở trình duyệt ip_ubuntu:1880 để check nodered đã chạy chưa
 
+ Truy cập http://172.20.164.62 -> Ra trang web cá nhân.
+
+ <img width="908" height="595" alt="image" src="https://github.com/user-attachments/assets/46ae65e9-5db6-40a9-8b07-626a7ab01bf2" />
+
+ Truy cập http://172.20.164.62/api/ -> Ra nội dung JSON của Flask.
+
+ <img width="1243" height="448" alt="image" src="https://github.com/user-attachments/assets/12e82b83-fcb3-4bc1-b0de-06535221fa28" />
+
+ Truy cập http://172.20.164.62:1880 -> Ra bảng đăng nhập bảo mật của Node-RED.
+
+ <img width="1908" height="967" alt="image" src="https://github.com/user-attachments/assets/bfbc837a-bb3e-468e-9b93-a0dd22c79990" />
+
 5 Sử dụng nodered: kéo nodered http_in , http_response, function : để tạo api get đơn giản (dùng cho /api proxy_pass của nginx)
+
+<img width="1377" height="769" alt="image" src="https://github.com/user-attachments/assets/15e8d05f-d883-4066-a17b-294336f6ea59" />
+
+<img width="1159" height="431" alt="image" src="https://github.com/user-attachments/assets/4efbd37e-a083-4eb4-bff2-40ff4bf5aef9" />
 
 6 Sửa file ./myweb/index.html : thêm code html+js để sử dụng được api đã khai báo proxy_pass (thực ra là sử dụng nodered http_in hoặc sử dụng service myapi)
 
+<img width="1099" height="696" alt="image" src="https://github.com/user-attachments/assets/336c34f9-5803-498e-ad0a-5195fb940e04" />
+
+<img width="1872" height="958" alt="image" src="https://github.com/user-attachments/assets/cb3bfc7d-3c7a-4fe5-82ce-a5fd0f9fd566" />
