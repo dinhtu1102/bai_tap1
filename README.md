@@ -79,31 +79,68 @@ Cấu hình mạng trong Ubuntu (và công cụ giả lập) để cho phép tru
 Ví dụ:
 
 để ssh tới ubuntu ở ip 192.168.100.123, user là admin thì mở CMD trên windows,
-gõ lệnh: ssh admin@192.168.100.123
+
+<img width="767" height="519" alt="image" src="https://github.com/user-attachments/assets/dbfa711d-2b2a-4761-a801-29c70141d4ad" />
+
+gõ lệnh: ssh dinhtu@172.20.164.62
+
+<img width="1019" height="659" alt="image" src="https://github.com/user-attachments/assets/e415cf65-6141-4914-86ca-95558e710462" />
+
 hệ thống sẽ yêu cầu nhập password (chú ý : password sẽ không hiện ra)
+
 sau khi login thành công sẽ thấy màn hình chào hỏi của ubuntu
+
 Tìm hiểu các lệnh cơ bản của ubuntu
+
 Các lệnh cần tìm hiểu:
 
 Liệt kê các file trong thư mục: ls
+
+<img width="875" height="113" alt="image" src="https://github.com/user-attachments/assets/494f1e93-5580-453b-b4a7-c12d93bd4af3" />
+
 Tạo thư mục: mkdir nameFolder
+
+<img width="1003" height="101" alt="image" src="https://github.com/user-attachments/assets/831b1ede-3157-4a83-b3e7-16b807a86dee" />
+
 Chuyển thư mục làm việc: cd path
+
+
 Copy file: cp file_nguồn path/file_đích
+
 Thay đổi quyền thao tác file: sudo chmod xxx filename
+
 Edit file: sudo nano tenfile
+
 CTRL+o : lưu nội dung sau khi edit
+
 CTRL+x : thoát edit file
+
+<img width="1104" height="634" alt="image" src="https://github.com/user-attachments/assets/d5690195-23b5-40d0-ae8d-7089c860bf93" />
+
 Xem ip của máy ubuntu: ip -4 addr
+
+<img width="1176" height="747" alt="image" src="https://github.com/user-attachments/assets/c0b09f04-4a39-4be2-9a40-ec2823d915bc" />
+
 Cài đặt docker cho Ubuntu
+
+<img width="1096" height="526" alt="image" src="https://github.com/user-attachments/assets/da8edaf6-8918-4dda-bced-a21af0ddc75c" />
+
 Kiểm tra phiên bản docker vừa cài đặt, kiểm tra phiên bản của docker compose
+
+<img width="499" height="95" alt="image" src="https://github.com/user-attachments/assets/4ccd0288-55fb-44fa-bb64-6f974d0f67a3" />
+
 Cấu hình để docker chạy mà không cần tiền tố sudo
+
+<img width="690" height="313" alt="image" src="https://github.com/user-attachments/assets/03ae4ed7-dd26-4179-8856-ae0201c8fa18" />
+
 Tìm hiểu tập lệnh của docker và docker compose
+
+
 Đảm bảo tường lửa trên Ubuntu đã cho phép các cổng 80, 1880, 9630 (Lệnh: sudo ufw allow ...)
+
+<img width="581" height="220" alt="image" src="https://github.com/user-attachments/assets/03c179c6-2427-4571-9573-0320b743ce40" />
+
 4 Nhập 2 dòng namespace của cloudflare vào trong trang quản lý DNS record của tên miền đăng ký (vd trên mắt bão)
 
-<img width="1639" height="778" alt="image" src="https://github.com/user-attachments/assets/c704b836-d91b-4a48-aece-b8bb7ccd272e" />
-
-* cài đặt namepace thành công
-
-<img width="1842" height="863" alt="image" src="https://github.com/user-attachments/assets/8da41247-bd3e-4398-9eea-12e3d1b45c1a" />
+<img width="1519" height="730" alt="image" src="https://github.com/user-attachments/assets/1690768f-bc11-4001-97f4-afadc9939476" />
 
