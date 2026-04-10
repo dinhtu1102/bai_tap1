@@ -101,7 +101,6 @@ Tạo thư mục: mkdir nameFolder
 
 Chuyển thư mục làm việc: cd path
 
-
 Copy file: cp file_nguồn path/file_đích
 
 Thay đổi quyền thao tác file: sudo chmod xxx filename
@@ -319,8 +318,19 @@ deploy:
     limits:
     
       memory: 512M
-      
+
+<img width="1073" height="148" alt="image" src="https://github.com/user-attachments/assets/808e13df-b4ea-4769-aafa-4f887e664255" />
+
 sử dụng lệnh: docker compose stats để quan sát lượng ram sử dụng bởi mỗi service
+
+Đầu tiên, bạn cần tạo file để thiết lập các thông số Healthcheck và giới hạn tài nguyên.
+
+<img width="1103" height="604" alt="image" src="https://github.com/user-attachments/assets/14f33b8f-0ea6-4962-9f96-ca18afcbc26f" />
+
+<img width="1090" height="281" alt="image" src="https://github.com/user-attachments/assets/55734925-1b30-4dc8-beb8-d9690a4a6363" />
+
+<img width="1084" height="208" alt="image" src="https://github.com/user-attachments/assets/a836ead7-7cba-4b20-96d7-e9a830e419cc" />
+
 
 # G. Triển khai ứng dụng đến End-user
 
