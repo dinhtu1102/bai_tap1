@@ -253,6 +253,12 @@ Chạy docker-compose lần đầu để Node-RED tự sinh file cấu hình tro
 
 <img width="1111" height="699" alt="image" src="https://github.com/user-attachments/assets/a2f6be52-77a1-4ed5-a7c1-2ac180833f9e" />
 
+* Kết quả chạy được:
+
+<img width="501" height="301" alt="image" src="https://github.com/user-attachments/assets/e10a6097-ca1d-4d1f-9226-0d7d926cf9a3" />
+
+<img width="1870" height="1033" alt="image" src="https://github.com/user-attachments/assets/c5993e58-9dfd-4097-ab1e-5aceeb62acd1" />
+
 # E. Triển khai (level test) ứng dụng
 
 1 Chuyển vào trong thư mục ~/myapp
