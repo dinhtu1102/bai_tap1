@@ -298,3 +298,51 @@ Lợi ích: Chỉ cần docker-compose up -d là toàn bộ hệ thống (Web + 
 <img width="1099" height="696" alt="image" src="https://github.com/user-attachments/assets/336c34f9-5803-498e-ad0a-5195fb940e04" />
 
 <img width="1872" height="958" alt="image" src="https://github.com/user-attachments/assets/cb3bfc7d-3c7a-4fe5-82ce-a5fd0f9fd566" />
+
+# F Gỡ lỗi:
+1 nếu có lỗi xẩy ra trong quá trình triển khai docker compose up -d
+
+Kiểm tra nhanh: docker compose ps giúp biết container nào đang chạy xem log, ví dụ: docker logs mynginx docker logs myapi
+
+2 Thêm healthcheck cho myapi trong file docker-compose.yml
+
+healthcheck:
+
+  test: ["CMD", "curl", "-f", "http://localhost:9630"]
+
+3 giới hạn resource cho một service: (tránh việc 1 service chiếm quá nhiều ram)
+
+deploy:
+
+  resources:
+  
+    limits:
+    
+      memory: 512M
+      
+sử dụng lệnh: docker compose stats để quan sát lượng ram sử dụng bởi mỗi service
+
+# G. Triển khai ứng dụng đến End-user
+
+1 Trong Cloudflare: Tạo tunnel (đường hầm), chọn loại triển khai cho docker
+
+2 Convert lệnh docker run ... sang dạng docker compose
+
+3 Khai báo kết quả convert vào trong file docker-compose.yml
+
+4 Chạy lại docker compose
+
+5 Public ứng dụng bằng cách thêm 1 router trỏ tới container đang chạy trong docker, dữ liệu sẽ đi qua tunnel, url dạng sub-domain
+
+6 Kiểm tra url sub-domain đã hoạt động public cho mọi end-user
+
+
+
+
+
+
+
+
+
+
+
