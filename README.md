@@ -303,11 +303,15 @@ Lợi ích: Chỉ cần docker-compose up -d là toàn bộ hệ thống (Web + 
 
 Kiểm tra nhanh: docker compose ps giúp biết container nào đang chạy xem log, ví dụ: docker logs mynginx docker logs myapi
 
+<img width="1080" height="140" alt="image" src="https://github.com/user-attachments/assets/381ef9cd-593f-4ab8-b57e-1369ad005008" />
+
 2 Thêm healthcheck cho myapi trong file docker-compose.yml
 
 healthcheck:
 
   test: ["CMD", "curl", "-f", "http://localhost:9630"]
+
+<img width="1101" height="124" alt="image" src="https://github.com/user-attachments/assets/3c23f535-e7cd-49c4-aa17-a5795b327521" />
 
 3 giới hạn resource cho một service: (tránh việc 1 service chiếm quá nhiều ram)
 
@@ -331,6 +335,9 @@ sử dụng lệnh: docker compose stats để quan sát lượng ram sử dụn
 
 <img width="1084" height="208" alt="image" src="https://github.com/user-attachments/assets/a836ead7-7cba-4b20-96d7-e9a830e419cc" />
 
+* Kết quả đạt được
+
+<img width="1862" height="908" alt="image" src="https://github.com/user-attachments/assets/b11004d0-fa1f-4749-8164-2bbe240edc2f" />
 
 # G. Triển khai ứng dụng đến End-user
 
