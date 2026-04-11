@@ -343,7 +343,23 @@ sử dụng lệnh: docker compose stats để quan sát lượng ram sử dụn
 
 1 Trong Cloudflare: Tạo tunnel (đường hầm), chọn loại triển khai cho docker
 
+<img width="1879" height="906" alt="image" src="https://github.com/user-attachments/assets/5ecf21c9-e553-4f3c-9b7d-ca5433c85e46" />
+
+<img width="1866" height="874" alt="image" src="https://github.com/user-attachments/assets/e77a9321-315a-4e92-bcc2-d71c1df1cae0" />
+
+<img width="1786" height="897" alt="image" src="https://github.com/user-attachments/assets/8599f293-7b55-44a7-9da7-76f99eefcca6" />
+
+<img width="1839" height="838" alt="image" src="https://github.com/user-attachments/assets/a8b872ba-65c5-4a00-815a-e0669e052fa8" />
+
+<img width="1845" height="775" alt="image" src="https://github.com/user-attachments/assets/0e9db438-c5dc-43d1-be3b-4f06124c4378" />
+
+<img width="1860" height="943" alt="image" src="https://github.com/user-attachments/assets/2580f4c3-521b-413a-bd43-b20c968b864d" />
+
+<img width="1875" height="932" alt="image" src="https://github.com/user-attachments/assets/3b26e2c3-6af2-4397-8230-90740c23a3ae" />
+
 2 Convert lệnh docker run ... sang dạng docker compose
+
+<img width="1108" height="202" alt="image" src="https://github.com/user-attachments/assets/f9586756-b75e-45d0-b027-f00b0634082c" />
 
 3 Khai báo kết quả convert vào trong file docker-compose.yml
 
