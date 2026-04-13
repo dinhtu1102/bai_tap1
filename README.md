@@ -29,7 +29,7 @@
 
 * giao diện cloudflare
 
-<img width="1859" height="914" alt="image" src="https://github.com/user-attachments/assets/ee30fa24-dce1-4d93-9468-927e2bfb78d0" />
+ <img width="1859" height="914" alt="image" src="https://github.com/user-attachments/assets/ee30fa24-dce1-4d93-9468-927e2bfb78d0" />
 
 * đặt tên domin
 
