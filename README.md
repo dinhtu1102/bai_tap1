@@ -369,12 +369,161 @@ sử dụng lệnh: docker compose stats để quan sát lượng ram sử dụn
 
 6 Kiểm tra url sub-domain đã hoạt động public cho mọi end-user
 
+<img width="1369" height="1024" alt="image" src="https://github.com/user-attachments/assets/3162727d-79b3-41dd-9236-bf15df49a5cd" />
 
+<img width="1335" height="1002" alt="image" src="https://github.com/user-attachments/assets/b55e1f84-8a29-4e6b-92d8-c89420b8fb16" />
 
+<img width="1309" height="987" alt="image" src="https://github.com/user-attachments/assets/ef381e0d-f52e-4f7c-96fc-384b58dca5c4" />
 
+* cloudflared tunnel login
+  
+<img width="1234" height="1014" alt="image" src="https://github.com/user-attachments/assets/c17f62cd-66e3-41f4-aa07-b11b5b86e1b6" />
 
+* bấm AU
 
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/dcda3830-c587-4c4c-adf2-f36f31a507e2" />
 
+* sinh file .cem
+
+<img width="1236" height="1014" alt="image" src="https://github.com/user-attachments/assets/0771cf63-15fa-4ae5-a894-f379903ed58d" />
+
+* cloudflared tunnel create my-tunnel
+
+<img width="1235" height="1021" alt="image" src="https://github.com/user-attachments/assets/15d839a1-eda0-459d-84a6-0950ac24da72" />
+
+* bước tiếp: Tạo config ( tạo router ) nano ~/.cloudflared/config.yml
+
+tunnel: YOUR_TUNNEL_ID
+
+credentials-file: /home/admin/.cloudflared/a8dbc3de-1f8f-48c8-b881-52a1c844f0e7.json
+
+ingress:
+
+  - hostname: iot.dinhtu.id.vn
+    
+    service: http://localhost:80
+    
+  - service: http_status:404
+
+<img width="1103" height="648" alt="image" src="https://github.com/user-attachments/assets/0508264d-b05b-49a5-bec5-ee112fe0ff7e" />
+
+* Bước tiếp: Tạo DNS cloudflared tunnel route dns my-tunnel abc.yourdomain.id.vn
+
+* Bước tiếp: Tạo DNS cloudflared tunnel route dns my-tunnel abc.yourdomain.id.vn
+
+<img width="1520" height="1011" alt="image" src="https://github.com/user-attachments/assets/d59af264-ef9d-4aaa-96ab-ff317532ef5d" />
+
+<img width="1449" height="941" alt="image" src="https://github.com/user-attachments/assets/db1e7e97-3375-4da5-b591-9f653a8e8797" />
+
+<img width="1454" height="963" alt="image" src="https://github.com/user-attachments/assets/60aca56b-2a11-4d3d-b40f-37dbaee8ce16" />
+
+* Chỉnh sửa lại nodered.
+
+<img width="1108" height="857" alt="image" src="https://github.com/user-attachments/assets/b8147974-277b-4998-acd3-a5106ec11b09" />
+
+* Kết quả :
+
+<img width="1822" height="969" alt="image" src="https://github.com/user-attachments/assets/6fae9daa-adb6-46fa-bd87-9c15b08335b6" />
+
+<img width="1832" height="965" alt="image" src="https://github.com/user-attachments/assets/cf75edd6-bb83-4d73-88b2-f6405b7e5e3c" />
+
+myapp/
+├── docker-compose.yml
+├── nginx/
+│   └── nginx.conf
+├── myweb/
+│   └── index.html
+└── nodered/ (sẽ tự sinh dữ liệu)
+│   └── (có nhiều file tự sinh)
+│   └── settings.js (file này cần edit để bắt nodered login)
+
+1 docker-compose.yml
+
+Lệnh kiểm tra: nano ~/myapp/docker-compose.yml
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/b8919494-a716-42cf-b643-2e73f776968c" />
+
+2 Nginx.conf
+
+Lệnh kiểm tra: nano ~/myapp/nginx/nginx.conf
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/64bbcc8f-75f6-4d33-82ed-5c8170490a58" />
+
+3 index.html
+
+Lệnh kiểm tra: nano ~/myapp/myweb/index.html
+
+<img width="1862" height="1070" alt="image" src="https://github.com/user-attachments/assets/fc7afb72-73a5-457d-a5b9-d1dc6de59f91" />
+
+4 nodered :
+
+<img width="1108" height="857" alt="image" src="https://github.com/user-attachments/assets/4f2ce323-9484-4d6b-a6a9-e1e69aaa3897" />
+
+# G. Câu hỏi về bài làm?
+
+Đây là phần giải đáp chi tiết cho các câu hỏi về hệ thống IoT của Tú. Những kiến thức này rất quan trọng để Tú bảo vệ đồ án của mình trước các thầy cô nhé.
+
+1. Tại sao phải dùng Nginx làm Reverse Proxy mà không trỏ thẳng Tunnel vào Node-RED?
+Quản lý tập trung: Nginx đóng vai trò là "người điều phối". Nó có thể nhận yêu cầu từ domain rồi chia ra: cái nào vào trang Web (HTML), cái nào vào API (Node-RED). Nếu trỏ thẳng vào Node-RED, Tú sẽ khó tích hợp thêm các ứng dụng khác (như Flask API, Database dashboard) trên cùng một tên miền.
+
+Bảo mật: Nginx ẩn đi các thông tin kỹ thuật của Node-RED, giúp chặn bớt các cuộc tấn công trực tiếp vào cổng dịch vụ.
+
+Hiệu năng: Nginx xử lý các file tĩnh (HTML, CSS, JS) cực nhanh, giúp giảm tải cho Node-RED để Node-RED chỉ tập trung xử lý logic IoT.
+
+2. Sự khác biệt giữa việc Mount file và Mount thư mục trong Docker?
+Mount file: Ánh xạ một file cụ thể (ví dụ: nginx.conf). Chỉ file đó được đồng bộ. Nếu Tú xóa file ở máy ngoài, container có thể gặp lỗi không tìm thấy cấu hình.
+
+Mount thư mục: Ánh xạ cả một "kho chứa" (ví dụ: ./nodered). Tất cả file cũ, file mới phát sinh bên trong đều được đồng bộ.
+
+Đặc biệt: Node-RED cần mount thư mục để nó tự sinh ra các file cài đặt, thư viện và flows mà không bị mất khi container khởi động lại.
+
+3. Nếu thay đổi file index.html ở máy Ubuntu, nội dung web có thay đổi ngay không? Tại sao?
+Có thay đổi ngay.
+
+Tại sao: Vì Tú đã dùng tính năng Volume Binding trong Docker. File index.html ở máy Ubuntu và trong container thực chất là một. Khi Tú lưu file bằng nano, Nginx trong container sẽ thấy nội dung mới ngay lập tức. Tú chỉ cần F5 trình duyệt là xong.
+
+4. Restart: always và restart: unless-stopped để làm gì?
+Restart: always: Container sẽ luôn tự khởi động lại nếu bị lỗi hoặc nếu máy ảo Ubuntu bị tắt đi bật lại.
+
+Restart: unless-stopped: Tương tự như always, nhưng nếu Tú chủ động dùng lệnh docker stop để tắt nó đi, nó sẽ không tự bật lại cho đến khi Tú ra lệnh start. Điều này giúp tránh việc container tự bật lên ngoài ý muốn khi Tú đang bảo trì hệ thống.
+
+5. Khai báo dùng chung 1 network và lợi ích?
+Cách khai báo: Khai báo một tên network ở cuối file (phần networks:) và gán tên đó vào từng service.
+
+Lợi ích: * DNS nội bộ: Các container gọi nhau bằng Tên service (ví dụ: http://nodered:1880) thay vì dùng IP. IP có thể thay đổi, nhưng tên service thì cố định.
+
+Bảo mật: Chỉ các container trong cùng network mới thấy nhau, cô lập với các ứng dụng khác bên ngoài.
+
+Sửa đổi file mẫu:
+
+YAML
+services:
+  nodered:
+    # ... cấu hình
+    networks:
+      - iot_net
+  my_nginx:
+    # ... cấu hình
+    networks:
+      - iot_net
+
+networks:
+  iot_net:
+    driver: bridge
+6. Cloudflare Token vào .env và .gitignore?
+Cách làm: Tạo file .env ghi: CF_TOKEN=mã_token_của_tú. Trong docker-compose.yml sửa thành: token: ${CF_TOKEN}. Sau đó thêm dòng .env vào file .gitignore.
+
+Tại sao quan trọng: Token là "chìa khóa" vào hệ thống của Tú. Nếu Tú push Token lên GitHub (mã nguồn mở), ai cũng có thể điều hướng tên miền của Tú về máy của họ hoặc tấn công vào mạng nội bộ của Tú. .env giúp tách biệt giữa Mã nguồn và Dữ liệu nhạy cảm.
+
+7. Tại sao nên thêm hậu tố :ro khi mount file cấu hình Nginx?
+:ro (Read-Only): Nghĩa là "Chỉ đọc".
+
+Lý do: Đảm bảo container Nginx không thể vô tình sửa đổi hoặc xóa file cấu hình gốc trên máy Ubuntu của Tú. Điều này giúp hệ thống ổn định và bảo mật hơn, tránh việc một lỗ hổng trong container làm hỏng dữ liệu máy chủ.
+
+8. Khi dùng Cloudflare Tunnel: có cần thiết phải mở cổng nữa không?
+Không cần thiết.
+
+Giải thích: Cloudflare Tunnel thiết lập một kết nối "đi ra" (outbound) từ máy ảo đến Cloudflare. Vì nó tự mở đường từ bên trong ra, nên Tú không cần mở cổng 80, 443 hay 1880 trên router hoặc tường lửa (UFW) của máy ảo nữa. Đây chính là ưu điểm lớn nhất về bảo mật của Tunnel.
 
 
 
